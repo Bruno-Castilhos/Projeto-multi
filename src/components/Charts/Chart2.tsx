@@ -3,7 +3,7 @@ import { Component } from 'react';
 import Chart from 'react-apexcharts'
 import {get} from '../../api/get'
 
-const url = 'http://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly';
+const url = 'https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly';
 
 interface backendResponse {
   x: number;
