@@ -3,7 +3,18 @@ import { Component } from 'react';
 import Chart from 'react-apexcharts'
 import {get} from '../../api/get'
 
+const url = 'https://api-projeto-iris.herokuapp.com/report/science_1_year/skill-student';
 
+interface backendResponse {
+  skill_id: string;
+  skill_percentage: number;
+}
+
+const apiResponse = await get(url) as backendResponse[]
+
+const value = apiResponse.map(arr => arr.skill_percentage)
+
+const label = apiResponse.map(arr => arr.skill_id)
 
 
 
@@ -14,18 +25,11 @@ export class App extends Component<{}, { series?: ApexOptions["series"], options
     super(props);
 
     this.state = {
-      series: [44, 55, 13, 43, 22],
+      series: value,
       options: {
-        chart: {
-          width: 380,
-        },
-        labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+        labels: label,
         responsive: [{
-          breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
             legend: {
               position: 'bottom'
             }
@@ -41,7 +45,7 @@ export class App extends Component<{}, { series?: ApexOptions["series"], options
   }
   render() {
     return (
-      <Chart options={this.state.options} series={this.state.series} type={'pie'}/>
+      <Chart options={this.state.options} series={this.state.series} width={500} type={'pie'}/>
     )
   }
 }

@@ -1,6 +1,6 @@
 export function Header() {
   return (
-    <header className="flex items-center justify-center bg-dark-500 px-8 py-4 w-full" >
+    <header className="flex fixed z-20 items-center justify-center bg-dark-500 px-8 py-4 w-full top-0">
       <h2 className="flex items-center">Projeto
       </h2>
       <svg className="flex items-center ml-4" id="Group_1" data-name="Group 1" xmlns="http://www.w3.org/2000/svg" width="62.121" height="34.5" viewBox="0 0 62.121 34.5">

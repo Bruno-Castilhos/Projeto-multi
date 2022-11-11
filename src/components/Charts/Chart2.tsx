@@ -31,7 +31,7 @@ export class App extends Component<{}, { series?: ApexOptions["series"], options
           categories: X,
           title: {
             text: 'Habilidades',
-            offsetY: 130
+            offsetY: 170
           }
         },
         yaxis: {
@@ -50,7 +50,7 @@ export class App extends Component<{}, { series?: ApexOptions["series"], options
   }
   render() {
     return (
-      <Chart className='text-[#000]' options={this.state.options} series={this.state.series} type="bar" width={380} height={260} />
+      <Chart className='text-[#000]' options={this.state.options} series={this.state.series} type="bar" width={700} height={400} />
     )
   }
 }
