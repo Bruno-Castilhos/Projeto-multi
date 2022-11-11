@@ -42,6 +42,9 @@ const App =()=>{
   const [Student, setStudent] = useState("");
   const stu = [
     {
+      name: "Selecione o aluno",
+      value: ""},
+    {
       name: "Aluno 1",
       value: "student_1"},
       {
@@ -57,11 +60,11 @@ const App =()=>{
 
   const [Skill, setSkill] = useState("");
   const ski = [
-    "EF01CI01", "EF01CI02", "EF01CI03", "EF01CI04", "EF01CI05", "EF01CI06"
+    "Selecione a habilidade", "EF01CI01", "EF01CI02", "EF01CI03", "EF01CI04", "EF01CI05", "EF01CI06"
   ]
     return (
       <div>
-        <section className="flex justify-between items-center px-52 py-4 text-[#000]">
+        <section className="flex justify-between items-center px-36 py-4 text-[#000]">
           <select onChange={e => setStudent(e.target.value as any)}>
           {stu.map((value, key) => (
             <option key={key} value={value.value}>{value.name}</option>))}
