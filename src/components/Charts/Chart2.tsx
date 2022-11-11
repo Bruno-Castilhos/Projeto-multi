@@ -3,18 +3,18 @@ import { Component } from 'react';
 import Chart from 'react-apexcharts'
 import {get} from '../../api/get'
 
-const url = 'https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly';
+const url = 'https://api-projeto-iris.herokuapp.com/report/science_1_year/skill-student';
 
 interface backendResponse {
-  x: number;
-  y: number;
+  skill_id: string;
+  total_points: number;
 }
 
 const apiResponse = await get(url) as backendResponse[]
 
-const Y = apiResponse.map(arr => arr.y)
+const Y = apiResponse.map(arr => arr.total_points)
 
-const X = apiResponse.map(arr => arr.x)
+const X = apiResponse.map(arr => arr.skill_id)
 
 
 export class App extends Component<{}, { series?: ApexOptions["series"], options?: ApexOptions }> {
