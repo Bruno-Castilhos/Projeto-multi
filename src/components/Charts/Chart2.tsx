@@ -7,15 +7,17 @@ const url = 'https://api-projeto-iris.herokuapp.com/report/science_1_year/skill-
 
 interface backendResponse {
   skill_id: string;
-  total_points: number;
+  total_points_distributed: number;
+  total_points_received: number;
 }
 
 const apiResponse = await get(url) as backendResponse[]
 
-const Y = apiResponse.map(arr => arr.total_points)
+const Y = apiResponse.map(arr => arr.total_points_received)
 
 const X = apiResponse.map(arr => arr.skill_id)
 
+const Z = apiResponse.map(arr => arr.total_points_distributed)
 
 export class App extends Component<{}, { series?: ApexOptions["series"], options?: ApexOptions }> {
   constructor(props: {} | Readonly<{}>) {
@@ -31,21 +33,33 @@ export class App extends Component<{}, { series?: ApexOptions["series"], options
           categories: X,
           title: {
             text: 'Habilidades',
-            offsetY: 170
+            offsetY: 86
           }
         },
         yaxis: {
           title: {
-            text: 'Notas'
+            text: 'Notas',
+            offsetX: -4
           }
         },
         dataLabels: {
           enabled: false
-        }
+        },
+        colors: ["#12566F", "#FFF"],
       },
+
+
       series: [{
+        type: "column",
+        name: "Notas obtidas",
         data: Y
-      }]
+      },
+      {
+        type: "column",
+        name: "Notas distribuídas",
+        data: Z
+      }
+]
     }
   }
   render() {
