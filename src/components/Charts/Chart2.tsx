@@ -3,7 +3,8 @@ import { Component } from 'react';
 import Chart from 'react-apexcharts'
 import {get} from '../../api/get'
 
-const url = 'https://api-projeto-iris.herokuapp.com/report/science_1_year/skill-student';
+//const url = 'https://api-projeto-iris.herokuapp.com/report/science_1_year/skill-student';
+const url = 'https://run.mocky.io/v3/5e8cbdc1-9cd2-47e3-b8fc-d63f95a3abd0';
 
 interface backendResponse {
   skill_id: string;
