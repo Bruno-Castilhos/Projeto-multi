@@ -12,7 +12,8 @@ interface backendResponse {
 
 const App =()=>{
   async function apiResponse(s:string, sk:string) {
-    const url = `https://api-projeto-iris.herokuapp.com/report/science_1_year/student/${s}/skill/${sk}`;
+    //const url = `https://api-projeto-iris.herokuapp.com/report/science_1_year/student/${s}/skill/${sk}`;
+    const url = `https://run.mocky.io/v3/42d367d6-642f-4d50-988b-5ea6d6dc3124`;
     const response = await get(url) as backendResponse
     setSeries([{data: [response.class_average_points, response.student_points]}])
   }
